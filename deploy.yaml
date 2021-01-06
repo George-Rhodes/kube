@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ryanpurchase288/week-6-project
+          image: georgerhodes/fund-pro
           ports:
           - name: app-port
             containerPort: 5000
