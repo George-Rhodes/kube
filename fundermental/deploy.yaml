@@ -10,7 +10,10 @@ spec:
     port: 80
     targetPort: 5000
   type: LoadBalancer
+  
 ---
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,7 +34,7 @@ spec:
         image: georgerhodes/fund-pro
         env:
         - name: DB_URI 
-          value: "mysql+pymysql://mysql:3306/db1"
+          value: "mysql+pymysql://root:passw@mysql-db:3306/db1"
         - name: SECRET_KEY
           value: "passw"
         ports:
