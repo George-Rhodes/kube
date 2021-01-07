@@ -31,7 +31,7 @@ spec:
         image: mysql:5.7
         env:
         - name: SECRET_KEY 
-          value: "root-pw"
+          value: "pw"
         - name: DB_URI 
           value: "db"
         ports:
