@@ -22,10 +22,11 @@ spec:
             containerPort: 3306
           env:
           - name: MYSQL_DATABASE
-            value: game
+            value: "mysql+pymysql://root:pass@mysql:3306/db"
           - name: MYSQL_ROOT_PASSWORD
             value: root
-              
+          - ports:
+            - containerPort: 5000    
 
 
 ---
@@ -55,7 +56,7 @@ spec:
           - name: DATABASE_URI
             value: "sqlite:///"
           - name: SECRET_KEY
-            value: "hello"
+            value: ""
   
 
 ---
@@ -78,10 +79,17 @@ kind: Service
 metadata:
   name: mysql
 spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+    protocol: TCP
+    name: mysql
   selector:
     app: mysql
-  ports:
-  - protocol: TCP
-    port: 3306
-    targetPort: 3306
-  type: ClusterIP
+#  selector:
+#    app: mysql
+#  ports:
+#  - protocol: TCP
+#    port: 3306
+#    targetPort: 3306
+#  type: ClusterIP
