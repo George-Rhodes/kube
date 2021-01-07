@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: exercise-tracker
+spec:
+  selector:
+    app: exercise-tracker
+  ports: 
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercise-tracker
+  labels: 
+    app: exercise-tracker
+spec:
+  selector:
+    matchLabels:
+      app: exercise-tracker
+  template:
+    metadata:
+      labels:
+        app: exercise-tracker
+    spec:
+      containers:
+      - name: exercise-tracker
+        image: georgerhodes/fund-pro
+        env:
+        - name: DB_URI 
+          value: "mysql+pymysql://root:pass@mysql:3306/db"
+        ports:
+        - containerPort: 5000
