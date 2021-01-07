@@ -31,8 +31,8 @@ spec:
         image: georgerhodes/fund-pro
         env:
         - name: DB_URI 
-          value: "mysql+pymysql://root:pw@mysql:3306/db"
+          value: "mysql+pymysql://root:passw@mysql:3306/db1"
         - name: SECRET_KEY
-          value: "pw"
+          value: "passw"
         ports:
         - containerPort: 5000
