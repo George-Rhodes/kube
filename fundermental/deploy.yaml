@@ -32,5 +32,7 @@ spec:
         env:
         - name: DB_URI 
           value: "mysql+pymysql://root:pass@mysql:3306/db"
+        - name: SECRET_KEY
+          value: "root-pw"
         ports:
         - containerPort: 5000
