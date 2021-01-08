@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: service-1
-        image: georgerhodes/service-1:2
+        image: georgerhodes/service-1:3
         env:
         - name: DB_URI 
           value: "mysql+pymysql://root:passw@mysql-db:3306/dbb"
