@@ -16,7 +16,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service-3
+  name: service-4
   labels: 
     app: service-4
 spec:
