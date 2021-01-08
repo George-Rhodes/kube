@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-3
+spec:
+  selector:
+    app: service-3
+  ports: 
+  - protocol: TCP
+    port: 5002
+    targetPort: 5002
+
+---
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-3
+  labels: 
+    app: service-3
+spec:
+  selector:
+    matchLabels:
+      app: service-3
+  template:
+    metadata:
+      labels:
+        app: service-3
+    spec:
+      containers:
+      - name: service-3
+        image: georgerhodes/service-3
+        ports:
+        - containerPort: 5002
